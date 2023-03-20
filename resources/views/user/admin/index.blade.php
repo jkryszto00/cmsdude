@@ -14,7 +14,44 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <div>{{ hello_world() }}</div>
+                    <div>
+
+                    </div>
+                    <div>
+                        <table class="w-full table-auto pb-60">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th><div class="sr-only"></div></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($users as $user)
+                                    <tr>
+                                        <td>{{ $user->id }}</td>
+                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td class="text-right">
+                                            <x-dropdown>
+                                                <x-slot:trigger>
+                                                    <x-secondary-button>
+                                                        Options
+                                                    </x-secondary-button>
+                                                </x-slot:trigger>
+                                                <x-slot:content href="{{ route('users:index') }}">
+                                                    <x-dropdown-link>
+                                                        Show
+                                                    </x-dropdown-link>
+                                                </x-slot:content>
+                                            </x-dropdown>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
