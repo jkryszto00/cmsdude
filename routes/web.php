@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
 
 
 Route::prefix('users')
-    ->as('user:')
+    ->as('users:')
     ->group(base_path('app/Modules/User/Routes/user.php'));
 
 require __DIR__.'/auth.php';
